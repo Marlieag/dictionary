@@ -13,7 +13,7 @@ export default function Meaning (props){
                     <div key={index}>
                     <p>
                         <strong>
-                            Definition:{""}
+                            Definition: {""}
                         </strong>
                         {definition.definition}
                     </p>
