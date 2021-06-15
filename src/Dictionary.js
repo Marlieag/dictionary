@@ -2,48 +2,75 @@ import React, { useState } from "react";
 import "./Dictionary.css";
 import axios from "axios";
 import Results from "./Results";
+import Button from "react-bootstrap/Button";
 
 export default function Dictionary (){
   let [keyword, setKeyword] = useState("");
   let [results, setResults] = useState(null);
- 
+  let [loaded, setLoaded] = useState(false);
+
+
 function handleResponse(response){
     console.log(response.data[0]);
     setResults(response.data[0]);
 }
-function search (event){
-    event.preventDefault();
-let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
-axios.get(apiUrl).then(handleResponse);
+function search (){
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+    axios.get(apiUrl).then(handleResponse);
 }
+function handleSubmit(event){
+    event.preventDefault();
+    search();
+}
+
 function handleKeywordChange (event){
     setKeyword(event.target.value);
 }
+function load (){
+    setLoaded(true);
+    search();
+}
+if (loaded) {
     return (
     <div className="dictionaryApp">
         <div className= "container">
+        <div className= "banner-area">
+    <header className="text-center">
+        <h1>
+          Dictionary
+        </h1>
+      </header>
         <div className= "searchEngine">
-        <form className="text-center" onSubmit= {search}>
+        <form className="text-center" onSubmit= {handleSubmit}>
             <div className="row">
-        <div className="col-8">
+        <div className="col">
+            <div className="search-bar">
             <input 
             type= "text" 
             placeholder="Search for a word..." 
             onChange = {handleKeywordChange}          
             />
+            </div>
         </div>
         <div className="col-4 sm">
-             <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary form-control w-50"
-            />
-        </div>
+            <div className= "search-button">
+            <Button variant="light" type ="button" size="md" onClick= {handleResponse}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+            </Button>
             </div>
-        <Results results= {results}/>
+        </div>
+        </div>
         </form>
         </div>
         </div>
+        <Results results= {results}/>
+        </div>
     </div> 
-    )
+    );
+} else {
+    load();
+    return "Loading...";
+}
 }

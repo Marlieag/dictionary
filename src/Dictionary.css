@@ -1,0 +1,51 @@
+.container {
+  margin: 0%;
+  padding: 0%;
+  max-width: 100%;
+}
+h1 {
+  margin: auto 0%;
+  padding: 30px 50px 60px 50px;
+  font-size: 90px;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 900;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 8px 4px magenta;
+}
+.banner-area {
+  background-image: url("/src/images/Popart.jpg");
+  background-size: cover;
+  width: 90%;
+  height: 300px;
+  margin: auto;
+  margin-top: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.searchEngine {
+  padding: 0px 50px;
+}
+
+input {
+  border-radius: 10px;
+  height: 35px;
+  width: 370px;
+}
+.col {
+  padding: 0px 10px;
+}
+.col-4 {
+  margin: auto;
+  padding: 0px;
+}
+.search-bar {
+  position: relative;
+  float: right;
+}
+
+.search-button {
+  position: relative;
+  float: left;
+}
