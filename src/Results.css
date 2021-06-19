@@ -1,6 +1,6 @@
 .results {
   text-align: left;
-  margin: auto;
+  margin: 0 auto;
 }
 h2 {
   font-size: 40px;
@@ -13,6 +13,7 @@ section {
   box-shadow: 2px 4px 20px #b6b6b6;
   color: rgb(63, 63, 63);
   border: 0.05px #000000 solid;
+  max-width: 1000px;
 }
 .example {
   color: rgb(75, 74, 74);
