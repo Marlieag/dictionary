@@ -3,30 +3,41 @@ import "./Dictionary.css";
 import axios from "axios";
 import Results from "./Results";
 import Button from "react-bootstrap/Button";
+import Photos from "./Photos";
 
-export default function Dictionary (){
+export default function Dictionary () {
   let [keyword, setKeyword] = useState("");
   let [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
+  let [photos, setPhotos] = useState(null);
 
 
-function handleResponse(response){
-    console.log(response.data[0]);
+function handleResponse(response) {
     setResults(response.data[0]);
 }
-function search (){
+function handlePexelsResponse (response) {
+    console.log(response.data);
+    setPhotos(response.data.photos);
+}
+
+function search () {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
     axios.get(apiUrl).then(handleResponse);
+
+    const pexelsApi= "563492ad6f91700001000001de18a2b3cff945a0afe5d0bcabd18482";
+    const pexelsUrl= `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+    const headers= { Authorization: `Bearer ${pexelsApi}`};
+    axios.get(pexelsUrl, { headers: headers}).then(handlePexelsResponse);
 }
-function handleSubmit(event){
+function handleSubmit(event) {
     event.preventDefault();
     search();
 }
 
-function handleKeywordChange (event){
+function handleKeywordChange (event) {
     setKeyword(event.target.value);
 }
-function load (){
+function load () {
     setLoaded(true);
     search();
 }
@@ -54,7 +65,7 @@ if (loaded) {
         </div>
         <div className="col-4 sm">
             <div className= "search-button">
-            <Button variant="light" type ="button" size="md" onClick= {handleResponse}>
+            <Button variant="dark" type ="button" size="md" onClick= {handleResponse}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
             </svg>
@@ -66,6 +77,7 @@ if (loaded) {
         </div>
         </div>
         <Results results= {results}/>
+        <Photos photos= {photos}/>
         </div>
     </div> 
     );

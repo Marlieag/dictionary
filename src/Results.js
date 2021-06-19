@@ -9,6 +9,7 @@ export default function Results (props){
     return (
         <div className ="results">
             <section>
+            <span className="wordResults">
             <h2>
                 {props.results.word}
             </h2>
@@ -20,13 +21,14 @@ export default function Results (props){
             </div>
             );
         })}
+            </span>
            </section> 
            
         {props.results.meanings.map(function(meaning, index){
-            return (
+            return (           
             <section key= {index}>
                 <Meaning meaning ={meaning}/>
-            </section>
+            </section>           
             );
         })}
            
