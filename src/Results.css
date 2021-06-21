@@ -1,5 +1,4 @@
 .results {
-  text-align: left;
   margin: 0 auto;
 }
 h2 {
@@ -9,7 +8,7 @@ section {
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.575);
   border-radius: 10px;
-  margin: 10px 60px;
+  margin: 10px auto;
   box-shadow: 2px 4px 20px #b6b6b6;
   color: rgb(63, 63, 63);
   border: 0.05px #000000 solid;

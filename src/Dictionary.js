@@ -5,10 +5,9 @@ import Results from "./Results";
 import Button from "react-bootstrap/Button";
 import Photos from "./Photos";
 
-export default function Dictionary () {
-  let [keyword, setKeyword] = useState("");
+export default function Dictionary() {
+  let [keyword, setKeyword] = useState(null);
   let [results, setResults] = useState(null);
-  let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
 
 
@@ -20,13 +19,13 @@ function handlePexelsResponse (response) {
     setPhotos(response.data.photos);
 }
 
-function search () {
+function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
     axios.get(apiUrl).then(handleResponse);
 
     const pexelsApi= "563492ad6f91700001000001de18a2b3cff945a0afe5d0bcabd18482";
     const pexelsUrl= `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
-    const headers= { Authorization: `Bearer ${pexelsApi}`};
+    const headers= { Authorization: `Bearer ${pexelsApi}` };
     axios.get(pexelsUrl, { headers: headers}).then(handlePexelsResponse);
 }
 function handleSubmit(event) {
@@ -34,14 +33,10 @@ function handleSubmit(event) {
     search();
 }
 
-function handleKeywordChange (event) {
+function handleKeywordChange(event) {
     setKeyword(event.target.value);
 }
-function load () {
-    setLoaded(true);
-    search();
-}
-if (loaded) {
+
     return (
     <div className="dictionaryApp">
         <div className= "container">
@@ -78,11 +73,12 @@ if (loaded) {
         </div>
         <Results results= {results}/>
         <Photos photos= {photos}/>
-        </div>
-    </div> 
+        <div className="footerImage">
+         <img src="/Book.png" alt="book" width="100"/>
+        </div> 
+        </div>       
+    </div>
     );
-} else {
-    load();
-    return "Loading...";
+
 }
-}
+

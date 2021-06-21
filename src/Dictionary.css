@@ -54,3 +54,8 @@ Button .hover {
   transition: ease-in-out;
   background-color: magenta;
 }
+
+.footerImage {
+  text-align: center;
+  margin: auto;
+}
