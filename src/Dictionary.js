@@ -4,6 +4,7 @@ import axios from "axios";
 import Results from "./Results";
 import Button from "react-bootstrap/Button";
 import Photos from "./Photos";
+import Card from "react-bootstrap/Card";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState(null);
@@ -40,11 +41,15 @@ function handleKeywordChange(event) {
     return (
     <div className="dictionaryApp">
         <div className= "container">
-        <div className= "banner-area">
     <header className="text-center">
-        <h1>
-          Dictionary
-        </h1>
+    <Card className="bg-dark text-white">
+  <Card.Img src="/popart.jpg" alt="Card image" />
+  <Card.ImgOverlay>
+    <Card.Title>
+         <h1>The  <br/> Dictionary</h1>
+    </Card.Title>
+  </Card.ImgOverlay>
+</Card>
       </header>
         <div className= "searchEngine">
         <form className="text-center" onSubmit= {handleSubmit}>
@@ -77,7 +82,7 @@ function handleKeywordChange(event) {
          <img src="/Book.png" alt="book" width="100"/>
         </div> 
         </div>       
-    </div>
+    
     );
 
 }
