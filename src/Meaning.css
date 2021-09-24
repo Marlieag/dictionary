@@ -1,3 +1,15 @@
+.meaning h3 {
+  font-family: "Bangers", cursive;
+  font-size: 35px;
+}
+
 .definition {
-  color: #ff00ff;
+  color: #f51a5f;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+.example {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
 }

@@ -1,9 +1,13 @@
 .synonyms {
   margin: 30px 0 20px;
   padding: 0;
+  font-family: "Comic Neue", cursive;
+  border: black 1px;
 }
 
 .synonyms li {
   display: inline-block;
-  padding-right: 10px;
+  padding-right: 15px;
+  font-size: 14px;
+  border: black 1px;
 }

@@ -12,23 +12,36 @@ h1 {
   font-weight: 900;
   -webkit-text-stroke-width: 0.1px;
   -webkit-text-stroke-color: black;
-  text-shadow: 8px 4px magenta;
+  text-shadow: 8px 4px #f51a5f;
 }
 
 .searchEngine {
-  padding: 0px 50px;
+  padding: 20px 50px;
+  background-color: rgba(255, 255, 255, 0.795);
+  border-radius: 10px;
+  margin: 10px auto;
+  max-width: 1000px;
+  box-shadow: 2px 4px 20px #b6b6b6;
 }
-
+.search-title {
+  font-family: "Roboto", sans-serif;
+}
+.suggestion {
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  margin-top: 10px;
+}
 input {
   border-radius: 10px;
   height: 35px;
-  width: 370px;
+  width: 400px;
 }
-.col {
-  padding: 0px 10px;
+.row {
+  display: flex;
+  justify-content: center;
 }
-.col-4 {
-  margin: auto;
+.col-2 {
+  margin-top: 30px;
   padding: 0px;
 }
 .search-bar {
@@ -49,4 +62,24 @@ Button .hover {
 .footerImage {
   text-align: center;
   margin: auto;
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 25px;
+    padding: 0%;
+    text-shadow: 3px 2px #f51a5f;
+  }
+  .suggestion {
+    font-size: 10px;
+  }
+  h5 {
+    font-size: 15px;
+  }
+  .searchEngine {
+    max-width: 500px;
+  }
+  .footerImage img {
+    width: 50;
+  }
 }

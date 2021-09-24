@@ -10,7 +10,7 @@ export default function Synonyms(props){
             return (
                 <span key={index}>
                 <li>
-                {synonym}
+               | {synonym} |
                 </li>
                 </span>
             );
