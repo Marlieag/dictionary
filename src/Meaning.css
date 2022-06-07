@@ -13,3 +13,21 @@
   font-size: 15px;
   font-family: "Roboto", sans-serif;
 }
+
+@media (max-width: 576px) {
+  .meaning h3{
+    font-size: 25px;
+  }
+  .definition {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 760px) {
+  .meaning h3 {
+      font-size: 40px;
+    }
+  .definition {
+      font-size: 20px;
+    }
+}

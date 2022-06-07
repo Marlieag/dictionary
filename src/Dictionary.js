@@ -43,7 +43,7 @@ function handleKeywordChange(event) {
         <div className= "container">
     <header className="text-center">
     <Card className="bg-dark text-white">
-  <Card.Img src="/popart.jpg" alt="Card image" />
+  <Card.Img src="/popart.jpg" className= "img-fluid" alt="Card image" mad-width= "%100" />
   <Card.ImgOverlay>
     <Card.Title>
          <h1>The  <br/> Dictionary</h1>
@@ -54,7 +54,7 @@ function handleKeywordChange(event) {
         <div className= "searchEngine">
         <form className="text-center" onSubmit= {handleSubmit}>
             <div className="row">
-        <div className="col-7">
+        <div className="col-md-7">
             <div className="search-bar">
             <div className="search-title">
                 <h5> Lets look up a definition</h5>
@@ -70,7 +70,7 @@ function handleKeywordChange(event) {
             </div>
             </div>
         </div>
-        <div className="col-2">
+        <div className="col-md-2">
             <div className= "search-button">
             <Button variant="info" type ="button" size="md" onClick= {handleSubmit}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -86,10 +86,9 @@ function handleKeywordChange(event) {
         <Results results= {results}/>
         <Photos photos= {photos}/>
         <div className="footerImage">
-         <img src="/Book.png" alt="book" width="100"/>
+         <img src="/Book.png" className="img-fluid" alt="book" width="100"/>
         </div> 
         </div>       
-    
     );
 
 }

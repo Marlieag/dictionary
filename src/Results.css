@@ -23,9 +23,6 @@ section {
 
 @media (max-width: 576px) {
   h2 {
-    font-size: 10px;
-  }
-  section {
-    width: 500px;
-  }
+    font-size: 25px;
+}
 }

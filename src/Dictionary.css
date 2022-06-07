@@ -25,7 +25,8 @@ h1 {
 }
 .search-title {
   font-family: "Roboto", sans-serif;
-}
+} 
+
 .suggestion {
   font-family: "Roboto", sans-serif;
   font-size: 11px;
@@ -52,6 +53,7 @@ input {
 .search-button {
   position: relative;
   float: left;
+  top: 32px;
 }
 Button .hover {
   cursor: pointer;
@@ -76,10 +78,31 @@ Button .hover {
   h5 {
     font-size: 15px;
   }
-  .searchEngine {
-    max-width: 500px;
+  
+  .search-button {
+    position: relative;
+    float: right;
+    right: 120px;
+    top: -5px;
+  }
+  button{
+    padding: 5px 15px;
   }
   .footerImage img {
-    width: 50;
+    width: 30;
   }
+  .form-element {
+    width: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  h1 {
+      font-size: 60px;
+      padding: 0%;
+      text-shadow: 3px 2px #f51a5f;
+    }
+         .footerImage img {
+           width: 40;
+         }
 }
